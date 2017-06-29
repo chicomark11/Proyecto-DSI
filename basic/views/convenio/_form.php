@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ID_CONVENIO')->textInput() ?>
 
-    <?= $form->field($model, 'ID_COORDINADOR')->dropDownList([['prompt'=>'Seleccione...']]); ?>
+    <?= $form->field($model, 'ID_COORDINADOR')->dropDownList([['prompt'=>'Seleccione...',0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]); ?>
 
     <?= $form->field($model, 'ID_TIPO_CONVENIO')->textInput() ?>
 
