@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Convenio */
@@ -14,7 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ID_CONVENIO')->textInput() ?>
 
-    <?= $form->field($model, 'ID_COORDINADOR')->dropDownList([['prompt'=>'Seleccione...',0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]); ?>
+    <?= $form->field($model, 'ID_COORDINADOR')->dropDownList(ArrayHelper::map($coordinadores, 'ID_COORDINADOR', 'NOMBRE_COORDINADOR')); ?>
 
     <?= $form->field($model, 'ID_TIPO_CONVENIO')->textInput() ?>
 

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Coordinador;
 use app\models\Convenio;
 use app\models\ConvenioSearch;
 use yii\web\Controller;
@@ -64,12 +65,14 @@ class ConvenioController extends Controller
     public function actionCreate()
     {
         $model = new Convenio();
+        $coordinadores = Coordinador::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'coordinadores' => $coordinadores,
             ]);
         }
     }
