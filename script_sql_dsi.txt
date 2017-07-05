@@ -1,0 +1,374 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: ACTIVIDAD_CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "ACTIVIDAD_CONVENIO" (
+    "ID_ACTIVIDAD" integer NOT NULL,
+    "ID_CONVENIO" integer NOT NULL,
+    "FECHA_INICIO" date NOT NULL,
+    "FECHA_FIN" date NOT NULL,
+    "DESCRIPCION" character(255) NOT NULL,
+    "VIGENTE" boolean NOT NULL
+);
+
+
+ALTER TABLE public."ACTIVIDAD_CONVENIO" OWNER TO postgres;
+
+--
+-- Name: CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "CONVENIO" (
+    "ID_CONVENIO" integer NOT NULL,
+    "ID_COORDINADOR" integer,
+    "ID_TIPO_CONVENIO" integer,
+    "ID_ESTADO_CONVENIO" integer,
+    "NOMBRE_CONVENIO" character(255),
+    "FECHA_INICIO" date,
+    "FECHA_TERMINO" date,
+    "DESCRIPCION" character(255),
+    "VIGENCIA" boolean
+);
+
+
+ALTER TABLE public."CONVENIO" OWNER TO postgres;
+
+--
+-- Name: CONVENIO&INSTITUCION; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "CONVENIO&INSTITUCION" (
+    "ID_INSTITUCION" integer NOT NULL,
+    "ID_CONVENIO" integer NOT NULL
+);
+
+
+ALTER TABLE public."CONVENIO&INSTITUCION" OWNER TO postgres;
+
+--
+-- Name: COORDINADOR; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "COORDINADOR" (
+    "ID_COORDINADOR" integer NOT NULL,
+    "RUT_COORDINADOR" character(255) NOT NULL,
+    "NOMBRE_COORDINADOR" character(255) NOT NULL,
+    "EMAIL" character(255) NOT NULL,
+    "TELEFONO" character(255) NOT NULL,
+    "DIRECCION" character(255) NOT NULL,
+    "VIGENCIA" boolean NOT NULL
+);
+
+
+ALTER TABLE public."COORDINADOR" OWNER TO postgres;
+
+--
+-- Name: ESTADO_CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "ESTADO_CONVENIO" (
+    "ID_ESTADO_CONVENIO" integer NOT NULL,
+    "DESCRIPCION" character(255) NOT NULL
+);
+
+
+ALTER TABLE public."ESTADO_CONVENIO" OWNER TO postgres;
+
+--
+-- Name: INSTITUCION; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "INSTITUCION" (
+    "ID_INSTITUCION" integer NOT NULL,
+    "NOMBRE_INSTITUCION" character varying(255),
+    "TIPO_INSTITUCION" character varying(255),
+    "PAIS" character varying(255),
+    "DIRECCION" character varying(255),
+    "TELEFONO" character varying(255),
+    "EMAIL" character varying(255),
+    "LINK" character varying(255),
+    "VIGENCIA" boolean
+);
+
+
+ALTER TABLE public."INSTITUCION" OWNER TO postgres;
+
+--
+-- Name: LOGIN; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "LOGIN" (
+    "ID_LOGIN" integer NOT NULL,
+    "NOMBRE_LOGIN" character(255) NOT NULL,
+    "PERMISO_LOGIN" integer NOT NULL,
+    "CLAVE_LOGIN" character(255) NOT NULL
+);
+
+
+ALTER TABLE public."LOGIN" OWNER TO postgres;
+
+--
+-- Name: MODALIDAD_CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "MODALIDAD_CONVENIO" (
+    "ID_MODALIDAD" integer NOT NULL,
+    "ID_CONVENIO" integer NOT NULL,
+    "DESCRIPCION" character(255) NOT NULL
+);
+
+
+ALTER TABLE public."MODALIDAD_CONVENIO" OWNER TO postgres;
+
+--
+-- Name: OBJETIVO_CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "OBJETIVO_CONVENIO" (
+    "ID_OBJETIVO" integer NOT NULL,
+    "ID_CONVENIO" integer NOT NULL,
+    "DESCRIPCION" character(255) NOT NULL
+);
+
+
+ALTER TABLE public."OBJETIVO_CONVENIO" OWNER TO postgres;
+
+--
+-- Name: TIPO_CONVENIO; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "TIPO_CONVENIO" (
+    "ID_TIPO_CONVENIO" integer NOT NULL,
+    "NOMBRE" character(255) NOT NULL
+);
+
+
+ALTER TABLE public."TIPO_CONVENIO" OWNER TO postgres;
+
+--
+-- Name: ACTIVIDAD_CONVENIO_ID_ACTIVIDAD_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "ACTIVIDAD_CONVENIO"
+    ADD CONSTRAINT "ACTIVIDAD_CONVENIO_ID_ACTIVIDAD_key" UNIQUE ("ID_ACTIVIDAD");
+
+
+--
+-- Name: ACTIVIDAD_CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "ACTIVIDAD_CONVENIO"
+    ADD CONSTRAINT "ACTIVIDAD_CONVENIO_pkey" PRIMARY KEY ("ID_ACTIVIDAD");
+
+
+--
+-- Name: CONVENIO_ID_CONVENIO_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "CONVENIO"
+    ADD CONSTRAINT "CONVENIO_ID_CONVENIO_key" UNIQUE ("ID_CONVENIO");
+
+
+--
+-- Name: CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "CONVENIO"
+    ADD CONSTRAINT "CONVENIO_pkey" PRIMARY KEY ("ID_CONVENIO");
+
+
+--
+-- Name: COORDINADOR_ID_COORDINADOR_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "COORDINADOR"
+    ADD CONSTRAINT "COORDINADOR_ID_COORDINADOR_key" UNIQUE ("ID_COORDINADOR");
+
+
+--
+-- Name: COORDINADOR_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "COORDINADOR"
+    ADD CONSTRAINT "COORDINADOR_pkey" PRIMARY KEY ("ID_COORDINADOR");
+
+
+--
+-- Name: ESTADO_CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "ESTADO_CONVENIO"
+    ADD CONSTRAINT "ESTADO_CONVENIO_pkey" PRIMARY KEY ("ID_ESTADO_CONVENIO");
+
+
+--
+-- Name: INSTITUCION_ID_INSTITUCION_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "INSTITUCION"
+    ADD CONSTRAINT "INSTITUCION_ID_INSTITUCION_key" UNIQUE ("ID_INSTITUCION");
+
+
+--
+-- Name: INSTITUCION_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "INSTITUCION"
+    ADD CONSTRAINT "INSTITUCION_pkey" PRIMARY KEY ("ID_INSTITUCION");
+
+
+--
+-- Name: LOGIN_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "LOGIN"
+    ADD CONSTRAINT "LOGIN_pkey" PRIMARY KEY ("ID_LOGIN");
+
+
+--
+-- Name: MODALIDAD_CONVENIO_ID_MODALIDAD_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "MODALIDAD_CONVENIO"
+    ADD CONSTRAINT "MODALIDAD_CONVENIO_ID_MODALIDAD_key" UNIQUE ("ID_MODALIDAD");
+
+
+--
+-- Name: MODALIDAD_CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "MODALIDAD_CONVENIO"
+    ADD CONSTRAINT "MODALIDAD_CONVENIO_pkey" PRIMARY KEY ("ID_MODALIDAD");
+
+
+--
+-- Name: OBJETIVO_CONVENIO_ID_OBJETIVO_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "OBJETIVO_CONVENIO"
+    ADD CONSTRAINT "OBJETIVO_CONVENIO_ID_OBJETIVO_key" UNIQUE ("ID_OBJETIVO");
+
+
+--
+-- Name: OBJETIVO_CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "OBJETIVO_CONVENIO"
+    ADD CONSTRAINT "OBJETIVO_CONVENIO_pkey" PRIMARY KEY ("ID_OBJETIVO");
+
+
+--
+-- Name: TIPO_CONVENIO_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "TIPO_CONVENIO"
+    ADD CONSTRAINT "TIPO_CONVENIO_pkey" PRIMARY KEY ("ID_TIPO_CONVENIO");
+
+
+--
+-- Name: ACTIVIDAD_CONVENIO_ID_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "ACTIVIDAD_CONVENIO"
+    ADD CONSTRAINT "ACTIVIDAD_CONVENIO_ID_CONVENIO_fkey" FOREIGN KEY ("ID_CONVENIO") REFERENCES "CONVENIO"("ID_CONVENIO");
+
+
+--
+-- Name: CONVENIO&INSTITUCION_ID_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CONVENIO&INSTITUCION"
+    ADD CONSTRAINT "CONVENIO&INSTITUCION_ID_CONVENIO_fkey" FOREIGN KEY ("ID_CONVENIO") REFERENCES "CONVENIO"("ID_CONVENIO");
+
+
+--
+-- Name: CONVENIO&INSTITUCION_ID_INSTITUCION_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CONVENIO&INSTITUCION"
+    ADD CONSTRAINT "CONVENIO&INSTITUCION_ID_INSTITUCION_fkey" FOREIGN KEY ("ID_INSTITUCION") REFERENCES "INSTITUCION"("ID_INSTITUCION");
+
+
+--
+-- Name: CONVENIO_ID_COORDINADOR_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CONVENIO"
+    ADD CONSTRAINT "CONVENIO_ID_COORDINADOR_fkey" FOREIGN KEY ("ID_COORDINADOR") REFERENCES "COORDINADOR"("ID_COORDINADOR");
+
+
+--
+-- Name: CONVENIO_ID_ESTADO_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CONVENIO"
+    ADD CONSTRAINT "CONVENIO_ID_ESTADO_CONVENIO_fkey" FOREIGN KEY ("ID_ESTADO_CONVENIO") REFERENCES "ESTADO_CONVENIO"("ID_ESTADO_CONVENIO");
+
+
+--
+-- Name: CONVENIO_ID_TIPO_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CONVENIO"
+    ADD CONSTRAINT "CONVENIO_ID_TIPO_CONVENIO_fkey" FOREIGN KEY ("ID_TIPO_CONVENIO") REFERENCES "TIPO_CONVENIO"("ID_TIPO_CONVENIO");
+
+
+--
+-- Name: MODALIDAD_CONVENIO_ID_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "MODALIDAD_CONVENIO"
+    ADD CONSTRAINT "MODALIDAD_CONVENIO_ID_CONVENIO_fkey" FOREIGN KEY ("ID_CONVENIO") REFERENCES "CONVENIO"("ID_CONVENIO");
+
+
+--
+-- Name: OBJETIVO_CONVENIO_ID_CONVENIO_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "OBJETIVO_CONVENIO"
+    ADD CONSTRAINT "OBJETIVO_CONVENIO_ID_CONVENIO_fkey" FOREIGN KEY ("ID_CONVENIO") REFERENCES "CONVENIO"("ID_CONVENIO");
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--

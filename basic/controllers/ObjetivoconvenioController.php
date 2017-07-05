@@ -3,24 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use app\models\Coordinador;
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
-=======
-use app\models\Coordinador;
->>>>>>> 8c03e4435ca4b34dc3a47a74a7d3e5dd7779ac70
-use app\models\Convenio;
-use app\models\ConvenioSearch;
+use app\models\Objetivoconvenio;
+use app\models\ObjetivoconvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ConvenioController implements the CRUD actions for Convenio model.
+ * ObjetivoconvenioController implements the CRUD actions for Objetivoconvenio model.
  */
-class ConvenioController extends Controller
+class ObjetivoconvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -38,14 +30,14 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Lists all Convenio models.
+     * Lists all Objetivoconvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ConvenioSearch();
+        $searchModel = new ObjetivoconvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -53,7 +45,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Displays a single Convenio model.
+     * Displays a single Objetivoconvenio model.
      * @param integer $id
      * @return mixed
      */
@@ -65,41 +57,25 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Creates a new Convenio model.
+     * Creates a new Objetivoconvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Convenio();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $coordinadores = Coordinador::find()->all();
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
-=======
-        $coordinadores = Coordinador::find()->all();
->>>>>>> 8c03e4435ca4b34dc3a47a74a7d3e5dd7779ac70
+        $model = new Objetivoconvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_OBJETIVO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                'coordinadores' => $coordinadores,
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
-=======
-                'coordinadores' => $coordinadores,
->>>>>>> 8c03e4435ca4b34dc3a47a74a7d3e5dd7779ac70
             ]);
         }
     }
 
     /**
-     * Updates an existing Convenio model.
+     * Updates an existing Objetivoconvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -109,7 +85,7 @@ class ConvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_OBJETIVO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -118,7 +94,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Deletes an existing Convenio model.
+     * Deletes an existing Objetivoconvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -131,20 +107,18 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Finds the Convenio model based on its primary key value.
+     * Finds the Objetivoconvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Convenio the loaded model
+     * @return Objetivoconvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Convenio::findOne($id)) !== null) {
+        if (($model = Objetivoconvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    
 }
