@@ -3,17 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Coordinador;
-use app\models\Convenio;
-use app\models\ConvenioSearch;
+use app\models\Aconvenio;
+use app\models\AconvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ConvenioController implements the CRUD actions for Convenio model.
+ * AconvenioController implements the CRUD actions for Aconvenio model.
  */
-class ConvenioController extends Controller
+class AconvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,14 +30,14 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Lists all Convenio models.
+     * Lists all Aconvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ConvenioSearch();
+        $searchModel = new AconvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -46,7 +45,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Displays a single Convenio model.
+     * Displays a single Aconvenio model.
      * @param integer $id
      * @return mixed
      */
@@ -58,27 +57,25 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Creates a new Convenio model.
+     * Creates a new Aconvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Convenio();
-        $coordinadores = Coordinador::find()->all();
+        $model = new Aconvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'coordinadores' => $coordinadores,
             ]);
         }
     }
 
     /**
-     * Updates an existing Convenio model.
+     * Updates an existing Aconvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,7 +85,7 @@ class ConvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -97,7 +94,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Deletes an existing Convenio model.
+     * Deletes an existing Aconvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,20 +107,18 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Finds the Convenio model based on its primary key value.
+     * Finds the Aconvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Convenio the loaded model
+     * @return Aconvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Convenio::findOne($id)) !== null) {
+        if (($model = Aconvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace app\controllers;
+namespace app\models;
 
 use Yii;
-use app\models\tipoconvenio;
-use app\models\tipoconvenioSearch;
+use app\models\Aconvenio;
+use app\models\AconvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TipoconvenioController implements the CRUD actions for tipoconvenio model.
+ * AconvenioController implements the CRUD actions for Aconvenio model.
  */
-class TipoconvenioController extends Controller
+class AconvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Lists all tipoconvenio models.
+     * Lists all Aconvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new tipoconvenioSearch();
+        $searchModel = new AconvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Displays a single tipoconvenio model.
+     * Displays a single Aconvenio model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Creates a new tipoconvenio model.
+     * Creates a new Aconvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new tipoconvenio();
+        $model = new Aconvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_TIPO_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Updates an existing tipoconvenio model.
+     * Updates an existing Aconvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class TipoconvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_TIPO_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_ACTIVIDAD]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Deletes an existing tipoconvenio model.
+     * Deletes an existing Aconvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class TipoconvenioController extends Controller
     }
 
     /**
-     * Finds the tipoconvenio model based on its primary key value.
+     * Finds the Aconvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return tipoconvenio the loaded model
+     * @return Aconvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = tipoconvenio::findOne($id)) !== null) {
+        if (($model = Aconvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
