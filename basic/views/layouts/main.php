@@ -43,6 +43,7 @@ AppAsset::register($this);
             ['label' => 'Coordinador', 'url' => ['/coordinador/']],
             ['label' => 'Institución', 'url' => ['/institucion/']],
             ['label' => 'Convenio', 'url' => ['/convenio/']],
+            ['label' => 'Tipo Convenio', 'url' => ['/tipoconvenio/']],
             ['label' => 'Gii', 'url' => ['/gii/']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
