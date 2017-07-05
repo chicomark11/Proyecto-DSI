@@ -3,20 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-<<<<<<< HEAD
-use app\models\Coordinador;
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
-use app\models\Convenio;
-use app\models\ConvenioSearch;
+use app\models\tipoconvenio;
+use app\models\tipoconvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ConvenioController implements the CRUD actions for Convenio model.
+ * TipoconvenioController implements the CRUD actions for tipoconvenio model.
  */
-class ConvenioController extends Controller
+class TipoconvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -34,14 +30,14 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Lists all Convenio models.
+     * Lists all tipoconvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ConvenioSearch();
+        $searchModel = new tipoconvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -49,7 +45,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Displays a single Convenio model.
+     * Displays a single tipoconvenio model.
      * @param integer $id
      * @return mixed
      */
@@ -61,33 +57,25 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Creates a new Convenio model.
+     * Creates a new tipoconvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Convenio();
-<<<<<<< HEAD
-        $coordinadores = Coordinador::find()->all();
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
+        $model = new tipoconvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_TIPO_CONVENIO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-<<<<<<< HEAD
-                'coordinadores' => $coordinadores,
-=======
->>>>>>> ca42b13feed2ffa119559fcfa89110559739b049
             ]);
         }
     }
 
     /**
-     * Updates an existing Convenio model.
+     * Updates an existing tipoconvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,7 +85,7 @@ class ConvenioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
+            return $this->redirect(['view', 'id' => $model->ID_TIPO_CONVENIO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -106,7 +94,7 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Deletes an existing Convenio model.
+     * Deletes an existing tipoconvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -119,20 +107,18 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Finds the Convenio model based on its primary key value.
+     * Finds the tipoconvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Convenio the loaded model
+     * @return tipoconvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Convenio::findOne($id)) !== null) {
+        if (($model = tipoconvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    
 }
