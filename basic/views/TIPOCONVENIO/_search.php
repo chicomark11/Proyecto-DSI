@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\TIPOCONVENIOSearch */
+/* @var $model app\models\tipoconvenioSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\TIPOCONVENIO;
-use app\models\TIPOCONVENIOSearch;
+use app\models\tipoconvenio;
+use app\models\tipoconvenioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TIPOCONVENIOController implements the CRUD actions for TIPOCONVENIO model.
+ * TipoconvenioController implements the CRUD actions for tipoconvenio model.
  */
-class TIPOCONVENIOController extends Controller
+class TipoconvenioController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Lists all TIPOCONVENIO models.
+     * Lists all tipoconvenio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TIPOCONVENIOSearch();
+        $searchModel = new tipoconvenioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Displays a single TIPOCONVENIO model.
+     * Displays a single tipoconvenio model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Creates a new TIPOCONVENIO model.
+     * Creates a new tipoconvenio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new TIPOCONVENIO();
+        $model = new tipoconvenio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_TIPO_CONVENIO]);
@@ -75,7 +75,7 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Updates an existing TIPOCONVENIO model.
+     * Updates an existing tipoconvenio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Deletes an existing TIPOCONVENIO model.
+     * Deletes an existing tipoconvenio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class TIPOCONVENIOController extends Controller
     }
 
     /**
-     * Finds the TIPOCONVENIO model based on its primary key value.
+     * Finds the tipoconvenio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return TIPOCONVENIO the loaded model
+     * @return tipoconvenio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TIPOCONVENIO::findOne($id)) !== null) {
+        if (($model = tipoconvenio::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

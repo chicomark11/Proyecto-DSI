@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\TIPOCONVENIO;
+use app\models\tipoconvenio;
 
 /**
- * TIPOCONVENIOSearch represents the model behind the search form about `app\models\TIPOCONVENIO`.
+ * tipoconvenioSearch represents the model behind the search form about `app\models\tipoconvenio`.
  */
-class TIPOCONVENIOSearch extends TIPOCONVENIO
+class tipoconvenioSearch extends tipoconvenio
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class TIPOCONVENIOSearch extends TIPOCONVENIO
      */
     public function search($params)
     {
-        $query = TIPOCONVENIO::find();
+        $query = tipoconvenio::find();
 
         // add conditions that should always apply here
 

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\TIPOCONVENIO */
+/* @var $model app\models\tipoconvenio */
 
 $this->title = 'Update Tipoconvenio: ' . $model->ID_TIPO_CONVENIO;
 $this->params['breadcrumbs'][] = ['label' => 'Tipoconvenios', 'url' => ['index']];

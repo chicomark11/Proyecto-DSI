@@ -12,7 +12,7 @@ use Yii;
  *
  * @property CONVENIO[] $cONVENIOs
  */
-class TIPOCONVENIO extends \yii\db\ActiveRecord
+class tipoconvenio extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
