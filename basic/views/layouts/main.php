@@ -42,8 +42,23 @@ AppAsset::register($this);
             ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Coordinador', 'url' =>['/coordinador/']],
             ['label' => 'Institución', 'url' =>['/institucion/']],
-            ['label' => 'Convenio', 'url' =>['/convenio/']],
+            
+            ['label' => 'Convenio',
+            //'visible' => Yii::$app->user->isGuest
+            'items' => [
+                ['label' => 'Convenio', 'url' =>['/convenio/']],
+                ['label' => 'Actividad Convenio', 'url' =>['/aconvenio/']],
+                ['label' => 'Estado Convenio', 'url' =>['/econvenio/']],
+                ['label' => 'Modalidad Convenio', 'url' =>['/mconvenio/']],
+                ['label' => 'Objetivo Convenio', 'url' =>['/objetivoconvenio/']],
+                ['label' => 'Tipo Convenio', 'url' =>['/tipoconvenio/']],
+                ['label' => 'Convenio & Institución    ', 'url' =>['/coninst/']],
+                ],
+            ],
+
             ['label' => 'Gii', 'url' =>['/gii/']],
+            
+            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
