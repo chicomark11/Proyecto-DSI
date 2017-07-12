@@ -15,8 +15,6 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'ID_ESTADO_CONVENIO') ?>
-
     <?= $form->field($model, 'DESCRIPCION') ?>
 
     <div class="form-group">

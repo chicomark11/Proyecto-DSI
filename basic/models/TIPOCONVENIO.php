@@ -28,8 +28,7 @@ class tipoconvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_TIPO_CONVENIO', 'NOMBRE'], 'required'],
-            [['ID_TIPO_CONVENIO'], 'integer'],
+            [['NOMBRE'], 'required'],
             [['NOMBRE'], 'string', 'max' => 255],
         ];
     }

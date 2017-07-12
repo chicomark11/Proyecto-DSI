@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Aconvenio */
 
-$this->title = $model->ID_ACTIVIDAD;
-$this->params['breadcrumbs'][] = ['label' => 'Aconvenios', 'url' => ['index']];
+$this->title = $model->DESCRIPCION;
+$this->params['breadcrumbs'][] = ['label' => 'Actividad de convenio', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="aconvenio-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->ID_ACTIVIDAD], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->ID_ACTIVIDAD], [
+        <?= Html::a('Actualizar', ['update', 'id' => $model->ID_ACTIVIDAD], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->ID_ACTIVIDAD], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '¿Está seguro de eliminar este elemento?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,11 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'ID_ACTIVIDAD',
-            'ID_CONVENIO',
+            //'ID_ACTIVIDAD',
+            //'ID_CONVENIO',
+            'DESCRIPCION',
             'FECHA_INICIO',
             'FECHA_FIN',
-            'DESCRIPCION',
             'VIGENTE:boolean',
         ],
     ]) ?>

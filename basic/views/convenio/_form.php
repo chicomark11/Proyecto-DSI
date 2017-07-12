@@ -12,16 +12,13 @@ use yii\helpers\ArrayHelper;
 <div class="convenio-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'ID_CONVENIO')->textInput() ?>
+    <?= $form->field($model, 'NOMBRE_CONVENIO')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ID_COORDINADOR')->dropDownList(ArrayHelper::map($coordinadores, 'ID_COORDINADOR', 'NOMBRE_COORDINADOR')); ?>
+    
+    <?= $form->field($model, 'ID_TIPO_CONVENIO')->dropDownList(ArrayHelper::map($tipoconvenios, 'ID_TIPO_CONVENIO', 'NOMBRE')); ?>
 
-    <?= $form->field($model, 'ID_TIPO_CONVENIO')->textInput() ?>
-
-    <?= $form->field($model, 'ID_ESTADO_CONVENIO')->textInput() ?>
-
-    <?= $form->field($model, 'NOMBRE_CONVENIO')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ID_ESTADO_CONVENIO')->dropDownList(ArrayHelper::map($estadoconvenios, 'ID_ESTADO_CONVENIO', 'DESCRIPCION')); ?>
 
     <?= $form->field($model, 'FECHA_INICIO')->textInput() ?>
 

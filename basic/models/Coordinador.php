@@ -31,8 +31,7 @@ class Coordinador extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_COORDINADOR', 'RUT_COORDINADOR', 'NOMBRE_COORDINADOR', 'EMAIL', 'TELEFONO', 'DIRECCION', 'VIGENCIA'], 'required'],
-            [['ID_COORDINADOR'], 'integer'],
+            [['RUT_COORDINADOR', 'NOMBRE_COORDINADOR', 'EMAIL', 'TELEFONO', 'DIRECCION', 'VIGENCIA'], 'required'],
             [['VIGENCIA'], 'boolean'],
             [['RUT_COORDINADOR', 'NOMBRE_COORDINADOR', 'EMAIL', 'TELEFONO', 'DIRECCION'], 'string', 'max' => 255],
         ];
@@ -44,12 +43,12 @@ class Coordinador extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_COORDINADOR' => 'Id  Coordinador',
-            'RUT_COORDINADOR' => 'Rut  Coordinador',
-            'NOMBRE_COORDINADOR' => 'Nombre  Coordinador',
-            'EMAIL' => 'Email',
-            'TELEFONO' => 'Telefono',
-            'DIRECCION' => 'Direccion',
+            'ID_COORDINADOR' => 'ID coordinador',
+            'RUT_COORDINADOR' => 'Rut del coordinador',
+            'NOMBRE_COORDINADOR' => 'Nombre del coordinador',
+            'EMAIL' => 'E-Mail',
+            'TELEFONO' => 'Teléfono',
+            'DIRECCION' => 'Dirección',
             'VIGENCIA' => 'Vigencia',
         ];
     }

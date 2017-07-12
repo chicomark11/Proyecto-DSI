@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Objetivoconvenio;
 use app\models\ObjetivoconvenioSearch;
+use app\models\convenio;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,12 +65,14 @@ class ObjetivoconvenioController extends Controller
     public function actionCreate()
     {
         $model = new Objetivoconvenio();
+        $convenios = Convenio::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_OBJETIVO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'convenios' => $convenios,
             ]);
         }
     }
@@ -83,12 +86,14 @@ class ObjetivoconvenioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $convenios = Convenio::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_OBJETIVO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'convenios' => $convenios,
             ]);
         }
     }

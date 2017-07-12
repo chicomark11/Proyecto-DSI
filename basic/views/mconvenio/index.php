@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\mconveniosearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Mconvenios';
+$this->title = 'Modalidad de convenio';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mconvenio-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Mconvenio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear nueva modalidad de convenio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_MODALIDAD',
-            'ID_CONVENIO',
+            //'ID_MODALIDAD',
+            //'ID_CONVENIO',
             'DESCRIPCION',
 
             ['class' => 'yii\grid\ActionColumn'],

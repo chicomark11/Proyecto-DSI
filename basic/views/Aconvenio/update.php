@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Aconvenio */
 
-$this->title = 'Update Aconvenio: ' . $model->ID_ACTIVIDAD;
-$this->params['breadcrumbs'][] = ['label' => 'Aconvenios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->ID_ACTIVIDAD, 'url' => ['view', 'id' => $model->ID_ACTIVIDAD]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Actualizar actividad de convenio: '. $model->DESCRIPCION;
+$this->params['breadcrumbs'][] = ['label' => 'Actividad de convenio', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->DESCRIPCION, 'url' => ['view', 'id' => $model->ID_ACTIVIDAD]];
+	$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="aconvenio-update">
 
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'convenios' => $convenios,
     ]) ?>
 
 </div>

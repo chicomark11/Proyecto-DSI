@@ -42,8 +42,8 @@ class coninst extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_INSTITUCION' => 'Id  Institucion',
-            'ID_CONVENIO' => 'Id  Convenio',
+            'ID_INSTITUCION' => 'ID Institución',
+            'ID_CONVENIO' => 'ID Convenio',
         ];
     }
 

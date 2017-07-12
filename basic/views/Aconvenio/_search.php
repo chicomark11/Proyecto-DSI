@@ -15,6 +15,8 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
+    <?= $form->field($model, 'DESCRIPCION') ?>
+
     <?= $form->field($model, 'ID_ACTIVIDAD') ?>
 
     <?= $form->field($model, 'ID_CONVENIO') ?>
@@ -22,8 +24,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'FECHA_INICIO') ?>
 
     <?= $form->field($model, 'FECHA_FIN') ?>
-
-    <?= $form->field($model, 'DESCRIPCION') ?>
 
     <?php // echo $form->field($model, 'VIGENTE')->checkbox() ?>
 

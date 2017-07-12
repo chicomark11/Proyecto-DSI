@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\econvenio */
 
-$this->title = 'Create Econvenio';
-$this->params['breadcrumbs'][] = ['label' => 'Econvenios', 'url' => ['index']];
+$this->title = 'Crear estado de convenio';
+$this->params['breadcrumbs'][] = ['label' => 'Estado de convenio', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="econvenio-create">

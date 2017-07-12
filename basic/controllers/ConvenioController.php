@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Coordinador;
+use app\models\tipoconvenio;
+use app\models\econvenio;
 use app\models\Convenio;
 use app\models\ConvenioSearch;
 use yii\web\Controller;
@@ -52,6 +54,7 @@ class ConvenioController extends Controller
      */
     public function actionView($id)
     {
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,6 +69,8 @@ class ConvenioController extends Controller
     {
         $model = new Convenio();
         $coordinadores = Coordinador::find()->all();
+        $tipoconvenios = tipoconvenio::find()->all();
+        $estadoconvenios = econvenio::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
@@ -73,6 +78,8 @@ class ConvenioController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'coordinadores' => $coordinadores,
+                'tipoconvenios' => $tipoconvenios,
+                'estadoconvenios' => $estadoconvenios,
             ]);
         }
     }
@@ -86,12 +93,18 @@ class ConvenioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $coordinadores = Coordinador::find()->all();
+        $tipoconvenios = tipoconvenio::find()->all();
+        $estadoconvenios = econvenio::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_CONVENIO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'coordinadores' => $coordinadores,
+                'tipoconvenios' => $tipoconvenios,
+                'estadoconvenios' => $estadoconvenios,
             ]);
         }
     }

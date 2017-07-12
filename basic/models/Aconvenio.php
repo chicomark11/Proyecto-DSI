@@ -32,12 +32,11 @@ class Aconvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_ACTIVIDAD', 'ID_CONVENIO', 'FECHA_INICIO', 'FECHA_FIN', 'DESCRIPCION', 'VIGENTE'], 'required'],
-            [['ID_ACTIVIDAD', 'ID_CONVENIO'], 'integer'],
-            [['FECHA_INICIO', 'FECHA_FIN'], 'safe'],
+            [['ID_CONVENIO', 'FECHA_INICIO', 'FECHA_FIN', 'DESCRIPCION', 'VIGENTE'], 'required'],
+            [['ID_CONVENIO'], 'integer'],
+            [['FECHA_INICIO', 'FECHA_FIN'],'safe'],
             [['VIGENTE'], 'boolean'],
             [['DESCRIPCION'], 'string', 'max' => 255],
-            [['ID_ACTIVIDAD'], 'unique'],
             [['ID_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => CONVENIO::className(), 'targetAttribute' => ['ID_CONVENIO' => 'ID_CONVENIO']],
         ];
     }
@@ -48,11 +47,11 @@ class Aconvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_ACTIVIDAD' => 'Id  Actividad',
-            'ID_CONVENIO' => 'Id  Convenio',
-            'FECHA_INICIO' => 'Fecha  Inicio',
-            'FECHA_FIN' => 'Fecha  Fin',
-            'DESCRIPCION' => 'Descripcion',
+            'ID_ACTIVIDAD' => 'ID Actividad',
+            'ID_CONVENIO' => 'Convenio',
+            'FECHA_INICIO' => 'Fecha de inicio',
+            'FECHA_FIN' => 'Fecha de término',
+            'DESCRIPCION' => 'Nombre de la actividad',
             'VIGENTE' => 'Vigente',
         ];
     }

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ObjetivoconvenioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Objetivoconvenios';
+$this->title = 'Objetivo de convenio';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="objetivoconvenio-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Objetivoconvenio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear nuevo objetivo de convenio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,9 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_OBJETIVO',
-            'ID_CONVENIO',
+            //'ID_OBJETIVO',
             'DESCRIPCION',
+            //'ID_CONVENIO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

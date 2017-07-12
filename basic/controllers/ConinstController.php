@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\coninst;
 use app\models\ConinstSearch;
+use app\models\convenio;
+use app\models\institucion;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,12 +67,16 @@ class ConinstController extends Controller
     public function actionCreate()
     {
         $model = new coninst();
+        $convenios = Convenio::find()->all();
+        $instituciones = Institucion::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'convenios' => $convenios,
+                'instituciones' => $instituciones,
             ]);
         }
     }
@@ -85,12 +91,16 @@ class ConinstController extends Controller
     public function actionUpdate($ID_INSTITUCION, $ID_CONVENIO)
     {
         $model = $this->findModel($ID_INSTITUCION, $ID_CONVENIO);
+        $convenios = Convenio::find()->all();
+        $instituciones = Institucion::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'convenios' => $convenios,
+                'instituciones' => $instituciones,
             ]);
         }
     }

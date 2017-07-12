@@ -29,8 +29,8 @@ class OBJETIVOCONVENIO extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_OBJETIVO', 'ID_CONVENIO', 'DESCRIPCION'], 'required'],
-            [['ID_OBJETIVO', 'ID_CONVENIO'], 'integer'],
+            [['ID_CONVENIO', 'DESCRIPCION'], 'required'],
+            [['ID_CONVENIO'], 'integer'],
             [['DESCRIPCION'], 'string', 'max' => 255],
             [['ID_OBJETIVO'], 'unique'],
             [['ID_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => CONVENIO::className(), 'targetAttribute' => ['ID_CONVENIO' => 'ID_CONVENIO']],
@@ -43,9 +43,9 @@ class OBJETIVOCONVENIO extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_OBJETIVO' => 'Id  Objetivo',
-            'ID_CONVENIO' => 'Id  Convenio',
-            'DESCRIPCION' => 'Descripcion',
+            'ID_OBJETIVO' => 'ID Objetivo',
+            'ID_CONVENIO' => 'Convenio',
+            'DESCRIPCION' => 'Objetivo',
         ];
     }
 

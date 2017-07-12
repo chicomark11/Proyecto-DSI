@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\econveniosearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Econvenios';
+$this->title = 'Estado de convenio';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="econvenio-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Econvenio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear nuevo estado de convenio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_ESTADO_CONVENIO',
+            //'ID_ESTADO_CONVENIO',
             'DESCRIPCION',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CoordinadorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Coordinadores';
+$this->title = 'Coordinador';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="coordinador-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Coordinador', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear nuevo coordinador', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_COORDINADOR',
+            //'ID_COORDINADOR',
             'RUT_COORDINADOR',
             'NOMBRE_COORDINADOR',
             'EMAIL:email',

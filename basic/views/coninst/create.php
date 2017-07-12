@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\coninst */
 
-$this->title = 'Create Coninst';
-$this->params['breadcrumbs'][] = ['label' => 'Coninsts', 'url' => ['index']];
+$this->title = 'Crear relacion convenio institución';
+$this->params['breadcrumbs'][] = ['label' => 'Convennio & Institución', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="coninst-create">
@@ -16,6 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'convenios' => $convenios,
+		'instituciones' => $instituciones,
     ]) ?>
 
 </div>

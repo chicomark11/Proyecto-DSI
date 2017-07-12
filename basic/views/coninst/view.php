@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\coninst */
 
-$this->title = $model->ID_INSTITUCION;
-$this->params['breadcrumbs'][] = ['label' => 'Coninsts', 'url' => ['index']];
+$this->title = 'Ver relación';
+$this->params['breadcrumbs'][] = ['label' => 'Convenio & Institución', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="coninst-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO], [
+        <?= Html::a('Actualizar', ['update', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'ID_INSTITUCION' => $model->ID_INSTITUCION, 'ID_CONVENIO' => $model->ID_CONVENIO], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '¿Está seguro de eliminar este elemento?',
                 'method' => 'post',
             ],
         ]) ?>

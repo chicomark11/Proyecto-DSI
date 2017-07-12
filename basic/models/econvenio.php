@@ -28,8 +28,7 @@ class econvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_ESTADO_CONVENIO', 'DESCRIPCION'], 'required'],
-            [['ID_ESTADO_CONVENIO'], 'integer'],
+            [['DESCRIPCION'], 'required'],
             [['DESCRIPCION'], 'string', 'max' => 255],
         ];
     }
@@ -40,8 +39,8 @@ class econvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_ESTADO_CONVENIO' => 'Id  Estado  Convenio',
-            'DESCRIPCION' => 'Descripcion',
+            'ID_ESTADO_CONVENIO' => 'ID Estado convenio',
+            'DESCRIPCION' => 'Nombre del estado',
         ];
     }
 

@@ -29,8 +29,8 @@ class mconvenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_MODALIDAD', 'ID_CONVENIO', 'DESCRIPCION'], 'required'],
-            [['ID_MODALIDAD', 'ID_CONVENIO'], 'integer'],
+            [['ID_CONVENIO', 'DESCRIPCION'], 'required'],
+            [['ID_CONVENIO'], 'integer'],
             [['DESCRIPCION'], 'string', 'max' => 255],
             [['ID_MODALIDAD'], 'unique'],
             [['ID_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => CONVENIO::className(), 'targetAttribute' => ['ID_CONVENIO' => 'ID_CONVENIO']],
@@ -43,9 +43,9 @@ class mconvenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_MODALIDAD' => 'Id  Modalidad',
-            'ID_CONVENIO' => 'Id  Convenio',
-            'DESCRIPCION' => 'Descripcion',
+            'ID_MODALIDAD' => 'ID Modalidad',
+            'ID_CONVENIO' => 'Convenio',
+            'DESCRIPCION' => 'Nombre de la modalidad',
         ];
     }
 

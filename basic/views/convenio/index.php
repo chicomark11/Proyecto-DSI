@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear convenio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear nuevo convenio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,15 +24,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID_CONVENIO',
-            'ID_COORDINADOR',
-            'ID_TIPO_CONVENIO',
-            'ID_ESTADO_CONVENIO',
+            //'ID_CONVENIO',
+            //'ID_COORDINADOR',
+            //'ID_TIPO_CONVENIO',
+            //'ID_ESTADO_CONVENIO',
             'NOMBRE_CONVENIO',
-            // 'FECHA_INICIO',
-            // 'FECHA_TERMINO',
-            // 'DESCRIPCION',
-            // 'VIGENCIA:boolean',
+            'FECHA_INICIO',
+            'FECHA_TERMINO',
+            'DESCRIPCION',
+            'VIGENCIA:boolean',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

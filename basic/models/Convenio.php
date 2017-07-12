@@ -35,13 +35,20 @@ class Convenio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_CONVENIO'], 'required'],
-            [['ID_CONVENIO', 'ID_COORDINADOR', 'ID_TIPO_CONVENIO', 'ID_ESTADO_CONVENIO'], 'integer'],
+            [['ID_COORDINADOR', 'ID_TIPO_CONVENIO', 'ID_ESTADO_CONVENIO', 'FECHA_INICIO', 'FECHA_TERMINO','VIGENCIA','NOMBRE_CONVENIO', 'DESCRIPCION'], 'required'],
+
+            [['ID_COORDINADOR', 'ID_TIPO_CONVENIO', 'ID_ESTADO_CONVENIO'], 'integer'],
+            
             [['FECHA_INICIO', 'FECHA_TERMINO'], 'safe'],
+            
             [['VIGENCIA'], 'boolean'],
+            
             [['NOMBRE_CONVENIO', 'DESCRIPCION'], 'string', 'max' => 255],
-            [['ID_CONVENIO'], 'unique'],
+            
             [['ID_COORDINADOR'], 'exist', 'skipOnError' => true, 'targetClass' => COORDINADOR::className(), 'targetAttribute' => ['ID_COORDINADOR' => 'ID_COORDINADOR']],
+            [['ID_TIPO_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => TIPOCONVENIO::className(), 'targetAttribute' => ['ID_TIPO_CONVENIO' => 'ID_TIPO_CONVENIO']],
+            [['ID_ESTADO_CONVENIO'], 'exist', 'skipOnError' => true, 'targetClass' => ECONVENIO::className(), 'targetAttribute' => ['ID_ESTADO_CONVENIO' => 'ID_ESTADO_CONVENIO']],
+              
         ];
     }
 
@@ -51,14 +58,14 @@ class Convenio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_CONVENIO' => 'Id  Convenio',
-            'ID_COORDINADOR' => 'Id  Coordinador',
-            'ID_TIPO_CONVENIO' => 'Id  Tipo  Convenio',
-            'ID_ESTADO_CONVENIO' => 'Id  Estado  Convenio',
-            'NOMBRE_CONVENIO' => 'Nombre  Convenio',
-            'FECHA_INICIO' => 'Fecha  Inicio',
-            'FECHA_TERMINO' => 'Fecha  Termino',
-            'DESCRIPCION' => 'Descripcion',
+            'ID_CONVENIO' => 'ID Convenio',
+            'ID_COORDINADOR' => 'Coordinador',
+            'ID_TIPO_CONVENIO' => 'Tipo de convenio',
+            'ID_ESTADO_CONVENIO' => 'Estado de convenio',
+            'NOMBRE_CONVENIO' => 'Nombre convenio',
+            'FECHA_INICIO' => 'Fecha de inicio',
+            'FECHA_TERMINO' => 'Fecha de término',
+            'DESCRIPCION' => 'Descripción',
             'VIGENCIA' => 'Vigencia',
         ];
     }
@@ -70,4 +77,15 @@ class Convenio extends \yii\db\ActiveRecord
     {
         return $this->hasOne(COORDINADOR::className(), ['ID_COORDINADOR' => 'ID_COORDINADOR']);
     }
+
+    public function getTIPOCONVENIO()
+    {
+        return $this->hasOne(TIPO_CONVENIO::className(), ['ID_TIPO_CONVENIO' => 'ID_TIPO_CONVENIO']);
+    }
+
+    public function getESTADOCONVENIO()
+    {
+        return $this->hasOne(ESTADO_CONVENIO::className(), ['ID_ESTADO_CONVENIO' => 'ID_ESTADO_CONVENIO']);
+    }
+
 }

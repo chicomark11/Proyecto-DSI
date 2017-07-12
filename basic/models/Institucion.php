@@ -33,8 +33,7 @@ class Institucion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_INSTITUCION'], 'required'],
-            [['ID_INSTITUCION'], 'integer'],
+            [['NOMBRE_INSTITUCION', 'TIPO_INSTITUCION', 'PAIS', 'DIRECCION', 'TELEFONO', 'EMAIL', 'LINK','VIGENCIA'], 'required'],
             [['VIGENCIA'], 'boolean'],
             [['NOMBRE_INSTITUCION', 'TIPO_INSTITUCION', 'PAIS', 'DIRECCION', 'TELEFONO', 'EMAIL', 'LINK'], 'string', 'max' => 255],
         ];
@@ -46,13 +45,13 @@ class Institucion extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_INSTITUCION' => 'Id  Institucion',
-            'NOMBRE_INSTITUCION' => 'Nombre  Institucion',
-            'TIPO_INSTITUCION' => 'Tipo  Institucion',
-            'PAIS' => 'Pais',
-            'DIRECCION' => 'Direccion',
-            'TELEFONO' => 'Telefono',
-            'EMAIL' => 'Email',
+            'ID_INSTITUCION' => 'ID Institución',
+            'NOMBRE_INSTITUCION' => 'Nombre de la institución',
+            'TIPO_INSTITUCION' => 'Tipo de institución',
+            'PAIS' => 'País',
+            'DIRECCION' => 'Dirección',
+            'TELEFONO' => 'Teléfono',
+            'EMAIL' => 'E-Mail',
             'LINK' => 'Link',
             'VIGENCIA' => 'Vigencia',
         ];
